@@ -2,7 +2,9 @@
 const Services = () => {
   return (
       <>
-        Services
+        <h1>
+          Services
+        </h1>
       </>
   )
 }

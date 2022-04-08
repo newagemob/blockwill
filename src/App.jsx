@@ -5,17 +5,9 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
-
       <div className='App'>
-        <h1 className='text-3xl font-bold text-center'>
-          Hello, Dave.
-        </h1>
-
         <LandingMain />
       </div>
-
-      <Footer />
     </>
   )
 }
