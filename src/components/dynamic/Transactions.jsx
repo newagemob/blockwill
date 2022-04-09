@@ -6,11 +6,21 @@ import useFetch from '../../hooks/useFetch'
 import dummyData from '../../utils/dummyData'
 import { shortenAddress } from '../../utils/shortenAddress'
 
+const gradientColors = [
+  '#00c6fb',
+  '#005bea',
+  '#00f7fb',
+  '#f7bb97',
+  '#ffd194',
+  '#ff5858'
+]
+
 const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, keyword, amount, url }) => {
-  const gifUrl = useFetch({ keyword })
+  const etherscanURL = useFetch({ addressTo })
 
   return (
-    <div className='bg-[#181918] m-4 flex flex-1
+    <div
+      className='bg-[#181918] m-4 flex flex-1
       2xl:min-w-[450px]
       2xl:max-w-[500px]
       sm:min-w-[270px]
@@ -27,17 +37,27 @@ const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, keyword,
             <p className='text-white text-base'>To: {shortenAddress(addressTo)}</p>
           </a>
           <p className='text-white text-base'>Amount: {amount} ETH</p>
-          {message && (
+          {keyword && (
             <>
               <br />
+              <p className='text-white text-base'>Contract Title: {keyword}</p>
+            </>
+          )}
+          {message && (
+            <>
               <p className='text-white text-base'>Message: {message}</p>
             </>
           )}
         </div>
-        <img
-          src={gifUrl || url}
-          alt='nature'
-          className='w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover'
+
+        <a
+          href={etherscanURL}
+          target='_blank'
+          className='w-full h-32 2xl:h-48 rounded-md shadow-lg object-cover'
+          style={{
+            // random color gradients
+            backgroundImage: `linear-gradient(to right, ${gradientColors[Math.floor(Math.random() * gradientColors.length)]}, ${gradientColors[Math.floor(Math.random() * gradientColors.length)]})`
+          }}
         />
         <div className='bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl'>
           <p className='text-[#37c7da] font-bold'>{timestamp}</p>
@@ -64,7 +84,7 @@ const Transactions = () => {
         )}
 
         <div className='flex flex-wrap justify-center items-center mt-10'>
-          {[...dummyData, ...transactions].reverse().map((transaction, i) => (
+          {[...transactions].reverse().map((transaction, i) => (
             <TransactionsCard key={i} {...transaction} />
           ))}
         </div>
