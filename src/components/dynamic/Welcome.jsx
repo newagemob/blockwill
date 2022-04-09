@@ -45,7 +45,6 @@ const Welcome = () => {
         <EthereumCard />
         </div>
 
-
       </div>
     </div>
   )

@@ -6,6 +6,10 @@ const LandingMain = () => {
         <div className='min-h-screen'>
             <Welcome />
         </div>
+
+        <div className='min-h-screen'>
+            <Services />
+        </div>
       </>
   )
 }
