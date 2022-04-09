@@ -55,9 +55,11 @@ const EthereumCard = () => {
             </div>
           </div>
         </div>
+
+        {/* Send Now Form */}
         <div className='p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism'>
           <div className='w-full inline-flex justify-between items-center'>
-            <Input placeholder='Address To' name='addressTo' type='text' handleChange={handleChange} />
+            <Input placeholder='Beneficiary' name='addressTo' type='text' handleChange={handleChange} />
             <span className='text-white font-semibold text-lg ml-4'>
               <GiReceiveMoney fontSize={21} color='#fff' />
             </span>

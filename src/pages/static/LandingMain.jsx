@@ -4,10 +4,6 @@ const LandingMain = () => {
   return (
       <>
         <div className='min-h-screen'>
-            <div className='gradient-bg-welcome'>
-                <Navbar />
-            </div>
-
             <Welcome />
         </div>
       </>
