@@ -1,4 +1,4 @@
-import { Footer, Loader, Navbar, Transactions } from './components'
+import { Footer, Loader, Navbar, Services, Transactions } from './components'
 import LandingMain from './pages/static/LandingMain'
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
       <LandingMain />
 
       <Transactions />
+      <Services />
     </>
   )
 }
