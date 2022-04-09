@@ -1,13 +1,13 @@
-import { Footer, Loader, Navbar } from './components'
+import { Footer, Loader, Navbar, Transactions } from './components'
 import LandingMain from './pages/static/LandingMain'
 
 const App = () => {
 
   return (
     <>
-      <div className='App'>
-        <LandingMain />
-      </div>
+      <LandingMain />
+
+      <Transactions />
     </>
   )
 }

@@ -9,9 +9,6 @@ const LandingMain = () => {
             </div>
 
             <Welcome />
-            <Services />
-            <Transactions />
-            <Footer />
         </div>
       </>
   )
