@@ -18,8 +18,13 @@ const navbar = () => {
 
   return (
     <>
-      <nav className='w-full flex md:justify-center justify-between items-center p-3'>
-        <div className='text-2xl font-bold text-white inline-flex'>
+      <nav className='w-full flex justify-center justify-between items-center p-3'>
+        <div
+          className='text-2xl font-bold text-white inline-flex'
+          style={{
+            marginLeft: '7rem',
+          }}
+        >
           <Link to='/'>
             <img src={logo} alt='logo' className='h-8 w-8 mr-4' />
             <span className='text-white'>
@@ -31,12 +36,22 @@ const navbar = () => {
           </Link>
         </div>
 
-        <ul className='text-white md:flex hidden list-none flex-row justify-between item-center flex-initial mx-4'>
+        <ul
+          // anchor the menu to the top right of the page
+          className='text-white md:flex hidden list-none flex-row justify-start item-center flex-initial mx-4 hover:text-red-500'
+          style={{
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            zIndex: '10',
+            margin: '2rem 3rem'
+          }}
+        >
           {[
             'Contracts',
             'Transactions',
-            'Wallets',
-            'Settings'
+            'Wallets'
+            // 'Settings'
           ].map((item, index) => (
             <Link to={`/${item.toLowerCase()}`} key={index} onClick={() => setToggleMenu(false)}>
               <NavbarItem key={item + index} title={item} classProps='text-white' />
@@ -53,7 +68,17 @@ const navbar = () => {
             <HiMenuAlt4 fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)} />
           )}
           {toggleMenu && (
-            <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(false)} />
+            <AiOutlineClose
+              fontSize={28}
+              className="text-white md:hidden cursor-pointer"
+              style={{
+                position: 'absolute',
+                top: '0',
+                right: '0',
+                zIndex: '10',
+                margin: '2rem 3rem'
+              }}
+              onClick={() => setToggleMenu(false)} />
           )}
 
           {toggleMenu && (
@@ -69,8 +94,8 @@ const navbar = () => {
               {[
                 'Contracts',
                 'Transactions',
-                'Wallets',
-                'Settings'
+                'Wallets'
+                // 'Settings'
               ].map((item, index) => (
                 <Link to={`/${item.toLowerCase()}`} key={index} onClick={() => setToggleMenu(false)}>
                   <NavbarItem key={item + index} title={item} classProps='my-2 text-lg' />

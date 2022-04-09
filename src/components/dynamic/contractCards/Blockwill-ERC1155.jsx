@@ -1,4 +1,5 @@
 import { SiEthereum } from 'react-icons/si'
+import { FaHandshake } from 'react-icons/fa'
 import { GiReceiveMoney } from 'react-icons/gi'
 import { FaFileContract } from 'react-icons/fa'
 import { MdMessage } from 'react-icons/md'
@@ -6,7 +7,7 @@ import { BsInfoCircle } from 'react-icons/bs'
 import { useContext } from 'react'
 import { TransactionContext } from '../../../context/TransactionContext'
 import { shortenAddress } from '../../../utils/shortenAddress'
-import { Loader } from '../../../components'
+import { Loader } from '../..'
 
 const companyCommonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white'
 
@@ -21,7 +22,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   />
 )
 
-const EthereumCard = () => {
+const BlockwillContractCard = () => {
   const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext)
 
   const handleSubmit = (e) => {
@@ -36,12 +37,55 @@ const EthereumCard = () => {
 
   return (
     <>
+      {/* Blockwill Token Info */}
+      <div
+        className='glassmorphism'
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 'auto',
+
+          backgroundColor: '#fafafa',
+          borderRadius: '10px',
+          padding: '20px',
+          margin: '20px',
+          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
+          marginTop: '20px',
+        }}
+      >
+        <div
+          className='flex flex-col items-center justify-center'
+          style={{
+            color: '#99aab5'
+          }}
+        >
+          <h2 className='text-center text-2xl font-semibold'>
+            Mint Blockwill Tokens
+          </h2>
+          <p
+            className='text-center text-sm font-light'
+            style={{
+              color: '#2c2f33',
+              marginTop: '20px',
+              textAlign: 'left'
+            }}
+          >
+            Blockwill Tokens are a utility token that hold metadata about the Blockwill contract. Metadata includes the Beneficiary, the percentage of Ethereum to be granted from the current wallet, the contract title and a human-readable message.
+            <br />
+            <br />
+            This metadata allows the Blockwill contract to grant access to the beneficiary upon contract expiration.
+          </p>
+        </div>
+      </div>
+
+      {/* Blockwill Token Card */}
       <div className='flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10'>
         <div className='p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card white-glassmorphism '>
           <div className='flex justify-between flex-col w-full h-full'>
             <div className='flex justify-between items-start'>
               <div className='w-10 h-10 rounded-full border-2 border-white flex justify-center items-center'>
-                <SiEthereum fontSize={21} color='#fff' />
+                <FaHandshake fontSize={21} color='#fff' />
               </div>
               <BsInfoCircle fontSize={17} color='#fff' />
             </div>
@@ -50,27 +94,11 @@ const EthereumCard = () => {
                 {shortenAddress(currentAccount)}
               </p>
               <p className='text-white font-semibold text-lg mt-1'>
-                Ethereum
+                Blockwill Token
               </p>
             </div>
           </div>
         </div>
-
-        {/* <div
-          className='flex flex-col items-center justify-center'
-          style={{
-            width: '66%',
-            maxWidth: '366px',
-            backgroundColor: '#fafafa',
-            border: 'none',
-            padding: '20px',
-            margin: '20px 0',
-          }}
-        >
-          <h1 className='text-center text-2xl font-semibold text-gray-400'>
-            Send Ethereum
-          </h1>
-        </div> */}
 
         {/* Send Now Form */}
         <div className='p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism'>
@@ -118,4 +146,4 @@ const EthereumCard = () => {
   )
 }
 
-export default EthereumCard
+export default BlockwillContractCard

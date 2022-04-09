@@ -1,5 +1,5 @@
 import { Footer, Loader, Navbar, Services, Transactions, Wallets } from './components'
-import LandingMain from './pages/static/LandingMain'
+import { LandingMain, Contracts } from './pages'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
 const App = () => {
@@ -11,10 +11,11 @@ const App = () => {
           <Navbar />
         </div>
         <Routes>
-          <Route path="/" element={<LandingMain />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/transactions" element={<Transactions />} />
-          <Route path="/wallets" element={<Wallets />} />
+          <Route path='/' element={<LandingMain />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/transactions' element={<Transactions />} />
+          <Route path='/wallets' element={<Wallets />} />
+          <Route path='/contracts' element={<Contracts />} />
         </Routes>
       </BrowserRouter>
     </>
